@@ -30,6 +30,10 @@ app.get('/VideoPage', (req,res)=>{
     res.render('VideoPage');
 })
 
+app.get('/PracticePage', (req,res)=>{
+    res.render('PracticePage');
+})
+
 
 app.listen(port, ()=>{
     console.log("server is running on port " + port);

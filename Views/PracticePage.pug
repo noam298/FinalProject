@@ -1,0 +1,34 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='Design.css')
+  title ניסוי שדה בלמידה דיגיטלית
+h1 שאלות לתרגול
+form
+  div
+    p What is the capital of France?
+    input(type='radio' name='question1' value='option1')
+    | Paris
+    br
+    input(type='radio' name='question1' value='option2')
+    | Marseille
+    br
+  div
+    p What is the capital of Germany?
+    input(type='radio' name='question2' value='option1')
+    | Berlin
+    br
+    input(type='radio' name='question2' value='option2')
+    | Munich
+    br
+  div
+    br
+    label(for='openQuestion') What is your favorite color?
+    br
+    br
+    textarea#openQuestion(name='openQuestion' rows='5' cols='60')
+    br
+  br
+  button.submitPractice(type='submit') Submit
