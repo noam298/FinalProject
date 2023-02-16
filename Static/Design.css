@@ -2,9 +2,9 @@
     font-family: myFont;
     src: url(./Montserrat-Regular.ttf);
 } */
-header{
+/* header{
 
-}
+} */
 
 body{
     background-image: url(./Images/BackImage.jpg);
@@ -16,11 +16,13 @@ body{
 }
 form{
   text-align:left;
+  font-size:120%;
+  margin-left: 40%;
 
 }
 
-.enterFromHP, .enterFromVP, .submitPractice{
 
+.enterFromHP, .enterFromVP, .submitPractice, .enterToSU, #EnterButton, #CreateButton{
   background-color: #EA4C89;
   border-radius: 8px;
   border-style: none;
@@ -47,7 +49,27 @@ form{
   touch-action: manipulation;
 }
 
+#CreateButton, #EnterButton{
+margin-top: 3%;
+margin-left: 15%;
+}
+
 .enterFromHP:hover,
-.enterFromHP:focus {
+.enterFromHP:focus,
+.enterFromVP:hover,
+.enterFromVP:focus,
+.enterToSU:hover,
+.enterToSU:focus,
+.submitPractice:hover,
+.submitPractice:focus,
+.GoButton:hover,
+.GoButton:focus {
   background-color: #F082AC;
+}
+
+@media screen and (max-width: 700px) {
+  body{
+      background-color: blueviolet ;
+  }
+  
 }

@@ -1,9 +1,9 @@
 const express = require('express');
 const BodyParser = require('body-parser');
 const path = require('path');
-const port = process.env.PORT;
-// const sql = require('./db');
-// const CRUD = require('./CRUD');
+const port = 3000;
+const sql = require('./db');
+const CRUD = require('./CRUD');
 // const CreateDB=require('./DBCreateData');
 
 //SetUp
@@ -33,6 +33,14 @@ app.get('/VideoPage', (req,res)=>{
 app.get('/PracticePage', (req,res)=>{
     res.render('PracticePage');
 })
+
+app.get('/SignUpPage', (req,res)=>{
+    res.render('SignUpPage');
+})
+
+app.post('/insertUser',CRUD.InsertUser);
+
+app.post('/enterUser',CRUD.SearchUser);
 
 
 app.listen(port, ()=>{

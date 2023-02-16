@@ -19,7 +19,8 @@
   "homepage": "https://github.com/noam298/FinalProject#readme",
   "dependencies": {
     "express": "^4.18.2",
-    "heroku": "^7.3.0"
+    "heroku": "^7.3.0",
+    "mysql2": "^3.1.2"
   },
   "devDependencies": {
     "pug": "^3.0.2"

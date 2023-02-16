@@ -1,0 +1,53 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='Design.css')
+  title ניסוי שדה בלמידה דיגיטלית
+form(name='myForm' method='post' action='/insertUser' onsubmit='')
+  h2 Create an Account
+  h4 Tell us about yourself!
+  label(for='UserID') ID 
+  input#UserID(type='number' name='UserID' placeholder='Your ID..' required='')
+  br
+  label(for='UserEmail') Email 
+  input#UserEmail(type='email' name='UserEmail' placeholder='Your email..' required='')
+  br
+  label(for='UserAge') Age 
+  input#UserAge(type='number' name='UserAge' placeholder='Your age..' required='')
+  br
+  label(for='UserGender') Gender 
+  select#UserGender(name='UserGender')
+    option(value='Male') Male
+    option(value='Female') Female
+    option(value='Other') Other
+  br
+  label(for='UserEnglishLevel') English Level 
+  select#UserEnglishLevel(name='UserEnglishLevel')
+    option(value='NoProficiency') No Proficiency
+    option(value='ElementaryProficiency') Elementary Proficiency
+    option(value='LimitedWorkingProficiency') Limited Working Proficiency
+    option(value='ProfessionalWorkingProficiency') Professional Working Proficiency
+    option(value='FullProfessionalProficiency') Full Professional Proficiency
+    option(value='NativeBilingualProficiency') Native / Bilingual Proficiency
+  br
+  label(for='UserArea') Area 
+  select#UserArea(name='UserArea')
+    option(value='Quiet') Quiet
+    option(value='Regular') Regular
+    option(value='Loud') Loud
+  br
+  label(for='internetStability') Level of internet stability 
+  select#internetStability(name='internetStability')
+    option(value='Stable') Stable
+    option(value='Regular') Regular
+    option(value='Weak') Weak
+  br
+  label(for='webAttendee') Level of Web attendance 
+  select#webAttendee(name='webAttendee')
+    option(value='Absent') Absent
+    option(value='Attendee') Attendee
+    option(value='Active') Active
+  br
+  input#CreateButton(name='CreateButton' type='submit' value='Create')
