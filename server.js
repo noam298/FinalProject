@@ -12,9 +12,9 @@ const app = express();
 
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({extended: true}));
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'Views'));
 app.set('view engine', 'pug');
-app.use(express.static('static'));  
+app.use(express.static('Static'));  
 
 // const start=function(req,res){
 //     res.render('WelcomePage');
