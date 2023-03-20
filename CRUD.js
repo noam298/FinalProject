@@ -33,14 +33,14 @@ const SearchUser = (req,res)=>{
     }
     const uEmail = req.body.UserEmail;
 
-    const Q3 = "SELECT * FROM students WHERE (email=?)";
-    sql.query(Q3, [uEmail],(err, mysqlres)=>{
+    const Q3 = "SELECT * FROM students WHERE (email=$1)";
+    sql.query(Q3, [uEmail],(err, pgres)=>{
             if (err) {
                 console.log("error in getting all users " + err);
                 res.status(400).send({message:"error in getting all users " + err});
                 return;
             }
-            if (mysqlres.length == 0){
+            if (pgres.rows.length == 0){
                 const message1 = "One or more fields are incorrect.";
                 const message2 = "Please try again.";
                 res.render('FailPage', {failMessage1: message1, failMessage2: message2});
