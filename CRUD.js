@@ -10,14 +10,15 @@ const InsertUser = (req,res)=>{
         "internetStability" : req.body.internetStability,
         "webAttendee" : req.body.webAttendee
     }
-    const Q1 = "INSERT INTO students SET ?";
-    sql.query(Q1, NewUserEntry, (err, mysqlres)=>{
+    const Q1 = "INSERT INTO students (email, age, gender, englishLevel, area, internetStability, webAttendee) VALUES ($1, $2, $3, $4, $5, $6, $7)";
+    const values = [NewUserEntry.email, NewUserEntry.age, NewUserEntry.gender, NewUserEntry.englishLevel, NewUserEntry.area, NewUserEntry.internetStability, NewUserEntry.webAttendee];
+    sql.query(Q1, values, (err, pgres)=>{
         if (err) {
             res.status(400).send({message: "error on creating user " + err});
             console.log("error on creating user " + err);
             return;            
         }
-        console.log("created new user succesfully "+ mysqlres);
+        console.log("created new user succesfully "+ pgres);
         res.render('EnterPage')
         return;
     });
