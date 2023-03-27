@@ -1,0 +1,88 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='Design.css')
+  title ניסוי שדה בלמידה דיגיטלית
+h1 Questions 9
+form
+  div
+    p
+      b 1.What is the correct syntax for iterating through an array using Pug?
+    input(type='radio' name='question1' value='option1')
+    | for each in names
+    br
+    input(type='radio' name='question1' value='option2')
+    | each in names
+    br
+    input(type='radio' name='question1' value='option3')
+    |  each name in names
+    br
+    input(type='radio' name='question1' value='option4')
+    | for name in names
+    br
+  div
+    p
+      b 2.How can you format an array on separate lines in Pug?
+    input(type='radio' name='question2' value='option1')
+    | By putting the opening dash (-) on a line of its own
+    br
+    input(type='radio' name='question2' value='option2')
+    | By indenting the variable assignment
+    br
+    input(type='radio' name='question2' value='option3')
+    | By unindenting any part of the variable assignment too much
+    br
+    input(type='radio' name='question2' value='option4')
+    | By using a semicolon (;) at the end of each line
+    br
+  div
+    p
+      b 3.How can you set a variable to contain a JavaScript object in Pug?
+    input(type='radio' name='question3' value='option1')
+    | By using parentheses to group the values together
+    br
+    input(type='radio' name='question3' value='option2')
+    | By using square brackets to group the values together
+    br
+    input(type='radio' name='question3' value='option3')
+    | By using curly braces to group the values together
+    br
+    input(type='radio' name='question3' value='option4')
+    | By using angle brackets to group the values together
+    br
+  div
+    p
+      b 4.What is the correct syntax for using conditions in Pug?
+    input(type='radio' name='question4' value='option1')
+    | if (condition)
+    br
+    input(type='radio' name='question4' value='option2')
+    | if condition
+    br
+    input(type='radio' name='question4' value='option3')
+    | if [condition]
+    br
+    input(type='radio' name='question4' value='option4')
+    | if {condition}
+    br
+  div
+    p
+      b 5.What will happen if you delete everything inside the square brackets of an array used in a Pug 'each' loop?
+    input(type='radio' name='question5' value='option1')
+    | The 'oh-no' div will no longer render
+    br
+    input(type='radio' name='question5' value='option2')
+    | The 'friends' part of the HTML will no longer render
+    br
+    input(type='radio' name='question5' value='option3')
+    | The HTML will still render but with no values inside the 'friends' div
+    br
+    input(type='radio' name='question5' value='option4')
+    | The HTML will not render at all
+    br
+  button.submitPractice(type='submit') Submit
+
+br
+a(href='/SignUpPage') Next

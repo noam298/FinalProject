@@ -47,7 +47,7 @@ const SearchUser = (req,res)=>{
                 return;
             }
             console.log("success... ");
-            res.render('VideoPage');
+            res.render('PlatformPage');
             return;
         });
 

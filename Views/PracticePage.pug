@@ -5,42 +5,189 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   link(rel='stylesheet' href='Design.css')
   title ניסוי שדה בלמידה דיגיטלית
-h1 שאלות לתרגול
+h1 Questions 1
 form
   div
-    p What is the capital of France?
+    p
+      b 1. What is Pug?
     input(type='radio' name='question1' value='option1')
-    | Paris
+    | A programming language
     br
     input(type='radio' name='question1' value='option2')
-    | Marseille
+    | A markup language
     br
     input(type='radio' name='question1' value='option3')
-    | Nice
+    | A scripting language
     br
     input(type='radio' name='question1' value='option4')
-    | Lyon
+    | A style sheet language
     br
   div
-    p What is the capital of Germany?
+    p
+      b 2. How is multi-line content inside a tag achieved in Pug?
     input(type='radio' name='question2' value='option1')
-    | Berlin
+    | By putting a dot straight after the tag
     br
     input(type='radio' name='question2' value='option2')
-    | Munich
+    | By preface each of the lines of content with a pipe symbol
     br
     input(type='radio' name='question2' value='option3')
-    | Frankfurt
+    | By using the # symbol
     br
     input(type='radio' name='question2' value='option4')
-    | Hamburg
+    | By using the . symbol
     br
   div
+    p
+      b 3. What happens when a line break is added after a tag in Pug?
+    input(type='radio' name='question3' value='option1')
+    | The content on the next line is ignored
     br
-    label(for='openQuestion') What is your favorite color?
+    input(type='radio' name='question3' value='option2')
+    | Pug treats the first word of the next line as an HTML tag
     br
+    input(type='radio' name='question3' value='option3')
+    | The tag is closed prematurely
     br
-    textarea#openQuestion(name='openQuestion' rows='5' cols='60')
+    input(type='radio' name='question3' value='option4')
+    | The tag becomes invalid
     br
-  br
-  button.submitPractice(type='submit') Submit
+  div
+    p
+      b 4. What is the purpose of creating a new Pug file named 'index.pug' in the 'lesson-03' folder according to the tutorial?
+    input(type='radio' name='question4' value='option1')
+    | To generate the expected-output.html file
+    br
+    input(type='radio' name='question4' value='option2')
+    | To learn how to use Pug syntax to create a website
+    br
+    input(type='radio' name='question4' value='option3')
+    | To download the logo, images, and CSS file from the Github repo
+    br
+    input(type='radio' name='question4' value='option4')
+    | To defeat the purpose of the exercise
+    br
+ div 
+    p
+      b 5. What is the purpose of the "-P" flag when compiling a Pug file to HTML?
+    input(type='radio' name='question5' value='option1')
+    | It tells the compiler to print out a list of errors
+    br
+    input(type='radio' name='question5' value='option2')
+    | It tells the compiler to output the HTML file in a human-readable, indented format
+    br
+    input(type='radio' name='question5' value='option3')
+    | It tells the compiler to minify the HTML file
+    br
+    input(type='radio' name='question5' value='option4')
+    | It tells the compiler to remove all comments from the HTML file
+    br
+ div
+    p
+        b 6. What is the consequence of getting the indentation wrong in a Pug file?
+    input(type='radio' name='question6' value='option1')
+    | The compiler will ignore the incorrect indentation and compile the file correctly
+    br
+    input(type='radio' name='question6' value='option2')
+    | The compiler will automatically fix the indentation and compile the file correctly
+    br
+    input(type='radio' name='question6' value='option3')
+    | The compiler will throw an error and refuse to compile the file
+    br
+    input(type='radio' name='question6' value='option4')
+    | The compiler will compile the file with incorrect indentation, but the resulting HTML will be correct
+    br
+ div
+    p
+      b 7. How are classes added to tags in Pug?
+    input(type='radio' name='question7' value='option1')
+    | By using the . symbol
+    br
+    input(type='radio' name='question7' value='option2')
+    | By using the # symbol
+    br
+    input(type='radio' name='question7' value='option3')
+    | By using the round parentheses
+    br
+    input(type='radio' name='question7' value='option4')
+    | By using the vertical bar
+    br
+ div
+    p
+      b 8. How are data attributes added to tags in Pug?
+    input(type='radio' name='question8' value='option1')
+    | By using the round parentheses
+    br
+    input(type='radio' name='question8' value='option2')
+    | By using the . symbol
+    br
+    input(type='radio' name='question8' value='option3')
+    | By using the # symbol
+    br
+    input(type='radio' name='question8' value='option4')
+    | By using the vertical bar
+    br
+ div
+    p
+      b 9. What should the generated index.html file be identical to, according to the tutorial?
+    input(type='radio' name='question9' value='option1')
+    | The logo, images, and CSS file
+    br
+    input(type='radio' name='question9' value='option2')
+    | The Pug file
+    br
+    input(type='radio' name='question9' value='option3')
+    | The expected-output.html file
+    br
+    input(type='radio' name='question9' value='option4')
+    | The Github repo
+    br
+ div
+    p
+        b 10. What is the purpose of the "-w" flag when using the "pug" command?
+    input(type='radio' name='question10' value='option1')
+    | It tells the compiler to write the output to a specific file
+    br
+    input(type='radio' name='question10' value='option2')
+    | It tells the compiler to watch for changes to the Pug file and automatically recompile it when changes are made
+    br
+    input(type='radio' name='question10' value='option3')
+    | It tells the compiler to stop watching for changes to the Pug file
+    br
+    input(type='radio' name='question10' value='option4')
+    | It tells the compiler to print out a list of warnings
+    br
+ div
+    p
+      b 11. How can Pug automatically create a div with a class name or ID name?
+    input(type='radio' name='question11' value='option1')
+    | By putting .class-name or #id-name
+    br
+    input(type='radio' name='question11' value='option2')
+    | By using the vertical bar
+    br
+    input(type='radio' name='question11' value='option3')
+    | By using the round parentheses
+    br
+    input(type='radio' name='question11' value='option4')
+    | By putting a dot straight after the tag
+    br
+  div
+    p
+      b 12. How can you compile your Pug file to normal HTML?
+    input(type='radio' name='question12' value='option1')
+    | By typing "pug index.pug" in the terminal
+    br
+    input(type='radio' name='question12' value='option2')
+    | By typing "html index.pug" in the terminal
+    br
+    input(type='radio' name='question12' value='option3')
+    | By typing "compile index.pug" in the terminal
+    br
+    input(type='radio' name='question12' value='option4')
+    | By typing "convert index.pug" in the terminal
+    br
+    button.submitPractice(type='submit') Submit
+
+br
+a(href='/CompleteSessions') Next

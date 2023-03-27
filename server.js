@@ -38,6 +38,166 @@ app.get('/SignUpPage', (req,res)=>{
     res.render('SignUpPage');
 })
 
+app.get('/EnterPage', (req,res)=>{
+    res.render('EnterPage');
+})
+
+app.get('/PlatformPage', (req,res)=>{
+    res.render('PlatformPage');
+})
+
+app.get('/complete', (req, res) => {
+    res.render('CompleteSessions');
+  });
+
+app.get('/divided', (req, res) => {
+    res.render('DividedSessions');
+  });
+
+app.get('/session1Complete', (req, res) => {
+    res.render('VideoPage');
+ });
+
+app.get('/VideoPage2', (req,res)=>{
+    res.render('VideoPage2');
+})
+
+app.get('/VideoPage3', (req,res)=>{
+    res.render('VideoPage3');
+})
+
+app.get('/session2Complete', (req, res) => {
+    res.render('VideoPageS2');
+ });
+
+ 
+ app.get('/VideoPage2S2', (req, res) => {
+    res.render('VideoPage2S2');
+ });
+
+ app.get('/VideoPage3S2', (req, res) => {
+    res.render('VideoPage3S2');
+ });
+
+ app.get('/session3Complete', (req, res) => {
+    res.render('VideoPageS3');
+ });
+
+ 
+ app.get('/VideoPage2S3', (req, res) => {
+    res.render('VideoPage2S3');
+ });
+
+ app.get('/VideoPage3S3', (req, res) => {
+    res.render('VideoPage3S3');
+ });
+
+app.get('/PracticeSession1', (req,res)=>{
+    res.render('PracticePage');
+})
+
+app.get('/CompleteSessions', (req,res)=>{
+    res.render('CompleteSessions');
+})
+
+app.get('/PracticeSession2', (req,res)=>{
+    res.render('PracticePageS2');
+})
+
+app.get('/PracticeSession3', (req,res)=>{
+    res.render('PracticePageS3');
+})
+
+
+app.get('/DividedSessions', (req, res) => {
+    res.render('DividedSessions');
+ });
+
+app.get('/session1Divided', (req, res) => {
+    res.render('VideoPageDivided');
+ });
+
+ app.get('/session2Divided', (req, res) => {
+    res.render('VideoPage4Divided');
+ });
+
+ app.get('/session3Divided', (req, res) => {
+    res.render('VideoPage7Divided');
+ });
+
+ app.get('/VideoPage2Divided', (req, res) => {
+    res.render('VideoPage2Divided');
+ });
+
+ app.get('/VideoPage3Divided', (req, res) => {
+    res.render('VideoPage3Divided');
+ });
+
+ app.get('/VideoPage4Divided', (req, res) => {
+    res.render('VideoPage4Divided');
+ });
+
+ app.get('/VideoPage5Divided', (req, res) => {
+    res.render('VideoPage5Divided');
+ });
+
+ app.get('/VideoPage6Divided', (req, res) => {
+    res.render('VideoPage6Divided');
+ });
+
+ app.get('/VideoPage7Divided', (req, res) => {
+    res.render('VideoPage7Divided');
+ });
+
+ app.get('/VideoPage8Divided', (req, res) => {
+    res.render('VideoPage8Divided');
+ });
+
+ app.get('/VideoPage9Divided', (req, res) => {
+    res.render('VideoPage9Divided');
+ });
+
+
+ app.get('/PracticePage1D', (req,res)=>{
+    res.render('PracticePage1D');
+})
+
+app.get('/PracticePage2D', (req,res)=>{
+    res.render('PracticePage2D');
+})
+
+app.get('/PracticePage3D', (req,res)=>{
+    res.render('PracticePage3D');
+})
+
+app.get('/PracticePage4D', (req,res)=>{
+    res.render('PracticePage4D');
+})
+
+app.get('/PracticePage5D', (req,res)=>{
+    res.render('PracticePage5D');
+})
+
+app.get('/PracticePage6D', (req,res)=>{
+    res.render('PracticePage6D');
+})
+
+app.get('/PracticePage7D', (req,res)=>{
+    res.render('PracticePage7D');
+})
+
+app.get('/PracticePage8D', (req,res)=>{
+    res.render('PracticePage8D');
+})
+
+app.get('/PracticePage9D', (req,res)=>{
+    res.render('PracticePage9D');
+})
+
+app.get('/SignUpPage', (req,res)=>{
+    res.render('SignUpPage');
+})
+
 app.post('/insertUser',CRUD.InsertUser);
 
 app.post('/enterUser',CRUD.SearchUser);
