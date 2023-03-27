@@ -61,7 +61,8 @@ const SearchUser = (req, res) => {
                     res.render("CompleteSessions");
                 } else {
                     console.log('Error: group 1 can only be accessed from a mobile device');
-                    res.status(400).send('Error: group 1 can only be accessed from a mobile device');
+                    res.render('FailPage', { failMessage1: "Error", failMessage2: "You can only log in from mobile" });
+                    // res.status(400).send('Error: group 1 can only be accessed from a mobile device');
                 }
                 break;
             case 2:
@@ -70,13 +71,15 @@ const SearchUser = (req, res) => {
                     res.render("DividedSessions");
                 } else {
                     console.log('Error: group 2 can only be accessed from a mobile device');
-                    res.status(400).send('Error: group 2 can only be accessed from a mobile device');
+                    res.render('FailPage', { failMessage1: "Error", failMessage2: "You can only log in from mobile" });
+                    // res.status(400).send('Error: group 2 can only be accessed from a mobile device');
                 }
                 break;
             case 3:
                 if (isMobile) {
                     console.log('Error: group 3 can only be accessed from a PC');
-                    res.status(400).send('Error: group 3 can only be accessed from a PC');
+                    res.render('FailPage', { failMessage1: "Error", failMessage2: "You can only log in from PC" });
+                    // res.status(400).send('Error: group 3 can only be accessed from a PC');
                 } else {
                     console.log('Rendering complete session');
                     res.render("CompleteSessions");
@@ -85,7 +88,8 @@ const SearchUser = (req, res) => {
             case 4:
                 if (isMobile) {
                     console.log('Error: group 4 can only be accessed from a PC');
-                    res.status(400).send('Error: group 4 can only be accessed from a PC');
+                    res.render('FailPage', { failMessage1: "Error", failMessage2: "You can only log in from PC" });
+                    // res.status(400).send('Error: group 4 can only be accessed from a PC');
                 } else {
                     console.log('Rendering divided session');
                     res.render("DividedSessions");
