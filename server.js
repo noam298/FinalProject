@@ -81,15 +81,37 @@ app.get('/divided', (req, res) => {
   });
 
 app.get('/session1Complete', (req, res) => {
-    res.render('VideoPage');
+    console.log(req.session)
+
+    if (req.session.email && req.session.grouptype == 'complete' && !req.session.sonevone){
+        req.session.sonevone = 'true'
+        res.render('VideoPage', { session: req.session })
+    }
+    else{
+        res.render('403')
+    }
+
  });
 
 app.get('/VideoPage2', (req,res)=>{
-    res.render('VideoPage2');
+    if (req.session.email && req.session.grouptype == 'complete' && !req.session.stwovtwo){
+        req.session.stwovtwo = 'true'
+        res.render('VideoPage2', { session: req.session })
+    }
+    else{
+        res.render('403')
+    }
+
 })
 
 app.get('/VideoPage3', (req,res)=>{
-    res.render('VideoPage3');
+    if (req.session.email && req.session.grouptype == 'complete' && !req.session.sthreevthree){
+        req.session.sthreevthree = 'true'
+        res.render('VideoPage3', { session: req.session })
+    }
+    else{
+        res.render('403')
+    }
 })
 
 app.get('/session2Complete', (req, res) => {
@@ -119,7 +141,14 @@ app.get('/session2Complete', (req, res) => {
  });
 
 app.get('/PracticeSession1', (req,res)=>{
-    res.render('PracticePage');
+    if (req.session.email && req.session.grouptype == 'complete' && !req.session.sessiononequestions){
+        req.session.sessiononequestions = 'true'
+        res.render('PracticePage', { session: req.session })
+    }
+    else{
+        res.render('403')
+    }
+
 })
 
 app.get('/CompleteSessions', (req,res)=>{

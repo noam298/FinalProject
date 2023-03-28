@@ -62,6 +62,7 @@ const SearchUser = (req, res) => {
                     console.log('Rendering complete session');
                     req.session.email = email; // Set email as session
                     req.session.groupno = groupno
+                    req.session.grouptype= 'complete'
                     res.render("CompleteSessions", { session: req.session });
                 } else {
                     console.log('Error: group 1 can only be accessed from a mobile device');
@@ -74,6 +75,7 @@ const SearchUser = (req, res) => {
                     console.log('Rendering divided session');
                     req.session.email = email; // Set email as session
                     req.session.groupno = groupno
+                    req.session.grouptype= 'divided'
                     res.render("DividedSessions", { session: req.session });
                 } else {
                     console.log('Error: group 2 can only be accessed from a mobile device');
@@ -90,6 +92,7 @@ const SearchUser = (req, res) => {
                     console.log('Rendering complete session');
                     req.session.email = email; // Set email as session
                     req.session.groupno = groupno
+                    req.session.grouptype= 'complete'
                     res.render("CompleteSessions", { session: req.session });
                 }
                 break;
@@ -102,6 +105,7 @@ const SearchUser = (req, res) => {
                     console.log('Rendering divided session');
                     req.session.email = email; // Set email as session
                     req.session.groupno = groupno
+                    req.session.grouptype= 'divided'
                     res.render("DividedSessions", { session: req.session });
                 }
                 break;
@@ -109,12 +113,14 @@ const SearchUser = (req, res) => {
                 console.log('Rendering complete session');
                 req.session.email = email; // Set email as session
                 req.session.groupno = groupno
+                req.session.grouptype= 'complete'
                 res.render("CompleteSessions", { session: req.session });
                 break;
             case 6:
                 console.log('Rendering divided session');
                 req.session.email = email; // Set email as session
                 req.session.groupno = groupno
+                req.session.grouptype= 'divided'
                 res.render("DividedSessions", { session: req.session });
                 break;
             default:
