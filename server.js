@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session');
 const BodyParser = require('body-parser');
 const path = require('path');
 const port = process.env.PORT || 3000;
@@ -8,6 +9,13 @@ const CRUD = require('./CRUD');
 
 //SetUp
 const app = express();
+
+//Express Session Setup
+app.use(session({
+    secret: 'abracadabra',
+    resave: false,
+    saveUninitialized: true
+}));
 
 
 app.use(BodyParser.json());
@@ -23,7 +31,16 @@ app.use(express.static('Static'));
 // app.get('/',[CreateDB.DropUsersTable,CreateDB.CreateUsers, CreateDB.InsertDataToUsers,start]);
 
 app.get('/', (req,res)=>{
-    res.render('WelcomePage');
+    if (req.session.groupno == 2 || req.session.groupno == 4 || req.session.groupno == 6) {
+        res.render('DividedSessions', { session: req.session })
+      } 
+
+    else if (req.session.groupno == 1 || req.session.groupno == 3 || req.session.groupno == 5) {
+        res.render('CompleteSessions', { session: req.session })
+      }
+    
+    else 
+        res.render('WelcomePage');
 })
 
 app.get('/VideoPage', (req,res)=>{
@@ -39,7 +56,16 @@ app.get('/SignUpPage', (req,res)=>{
 })
 
 app.get('/EnterPage', (req,res)=>{
-    res.render('EnterPage');
+    if (req.session.groupno == 2 || req.session.groupno == 4 || req.session.groupno == 6) {
+        res.render('DividedSessions', { session: req.session })
+      } 
+
+    else if (req.session.groupno == 1 || req.session.groupno == 3 || req.session.groupno == 5) {
+        res.render('CompleteSessions', { session: req.session })
+      }
+    
+    else 
+        res.render('EnterPage');
 })
 
 app.get('/PlatformPage', (req,res)=>{

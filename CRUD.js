@@ -48,8 +48,10 @@ const SearchUser = (req, res) => {
         }
 
         const groupno = parseInt(pgres.rows[0].groupno);
+        const email = pgres.rows[0].email;
 
-        console.log(`groupno of user trying to login is ${groupno}`)
+        console.log(`Groupno of user trying to login is ${groupno}`)
+        console.log(`Email of user trying to login is ${email}`)
 
         const userAgent = req.headers['user-agent'];
         const isMobile = /Mobile/.test(userAgent);
@@ -58,7 +60,9 @@ const SearchUser = (req, res) => {
             case 1:
                 if (isMobile) {
                     console.log('Rendering complete session');
-                    res.render("CompleteSessions");
+                    req.session.email = email; // Set email as session
+                    req.session.groupno = groupno
+                    res.render("CompleteSessions", { session: req.session });
                 } else {
                     console.log('Error: group 1 can only be accessed from a mobile device');
                     res.render('FailPage', { failMessage1: "Error", failMessage2: "You can only log in from mobile" });
@@ -68,7 +72,9 @@ const SearchUser = (req, res) => {
             case 2:
                 if (isMobile) {
                     console.log('Rendering divided session');
-                    res.render("DividedSessions");
+                    req.session.email = email; // Set email as session
+                    req.session.groupno = groupno
+                    res.render("DividedSessions", { session: req.session });
                 } else {
                     console.log('Error: group 2 can only be accessed from a mobile device');
                     res.render('FailPage', { failMessage1: "Error", failMessage2: "You can only log in from mobile" });
@@ -82,7 +88,9 @@ const SearchUser = (req, res) => {
                     // res.status(400).send('Error: group 3 can only be accessed from a PC');
                 } else {
                     console.log('Rendering complete session');
-                    res.render("CompleteSessions");
+                    req.session.email = email; // Set email as session
+                    req.session.groupno = groupno
+                    res.render("CompleteSessions", { session: req.session });
                 }
                 break;
             case 4:
@@ -92,16 +100,22 @@ const SearchUser = (req, res) => {
                     // res.status(400).send('Error: group 4 can only be accessed from a PC');
                 } else {
                     console.log('Rendering divided session');
-                    res.render("DividedSessions");
+                    req.session.email = email; // Set email as session
+                    req.session.groupno = groupno
+                    res.render("DividedSessions", { session: req.session });
                 }
                 break;
             case 5:
                 console.log('Rendering complete session');
-                res.render("CompleteSessions");
+                req.session.email = email; // Set email as session
+                req.session.groupno = groupno
+                res.render("CompleteSessions", { session: req.session });
                 break;
             case 6:
                 console.log('Rendering divided session');
-                res.render("DividedSessions");
+                req.session.email = email; // Set email as session
+                req.session.groupno = groupno
+                res.render("DividedSessions", { session: req.session });
                 break;
             default:
                 console.log('Error: invalid group number');
