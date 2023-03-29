@@ -70,8 +70,8 @@ app.get('/PracticePage', (req,res)=>{
     res.render('PracticePage');
 })
 
-app.get('/SignUpPage', (req,res)=>{
-    res.render('SignUpPage');
+app.get('/SignUpPage', isAuth, (req,res)=>{
+    res.render('SignUpPage', { session: req.session });
 })
 
 app.get('/EnterPage', (req,res)=>{
@@ -354,7 +354,7 @@ app.post('/SubmitTestComplete3', (req,res)=>{
         else{
             req.session.testsubmitted3 = 'true'
             req.session.completes3v1 = 'false'
-            res.redirect('/CompleteSessions')
+            res.redirect('/SignUpPage')
         }
 
     });
@@ -490,6 +490,32 @@ app.get('/SignUpPage', (req,res)=>{
 app.post('/insertUser',CRUD.InsertUser);
 
 app.post('/enterUser',CRUD.SearchUser);
+
+app.post('/insertbio', (req,res)=>{
+    console.log(req.body)
+
+    //Destructure Bio Form Data
+    const { UserAge, UserGender, UserEnglishLevel, UserArea, internetStability, webAttendee } = req.body;
+
+    const query = `
+      UPDATE students
+      SET age = $1, gender = $2, englishlevel = $3, area = $4, internetstability = $5, webattendee = $6
+      WHERE email='${req.session.email}'
+    `;
+
+    const values = [UserAge, UserGender, UserEnglishLevel, UserArea, internetStability, webAttendee ];
+
+    sql.query(query, values, (err,pgres)=>{
+        if(err){
+            throw err
+        }
+        else{
+            res.redirect('/CompleteSessions')
+        }
+
+    });
+
+})
 
 
 app.listen(port, ()=>{
