@@ -59,10 +59,6 @@ app.get('/', (req,res)=>{
         res.render('WelcomePage');
 })
 
-app.get('/enterUser', isAuth, (req,res) =>{
-    res.render('CompleteSessions', {session: req.session})
-})
-
 app.get('/VideoPage', (req,res)=>{
     res.render('VideoPage');
 })
@@ -258,16 +254,30 @@ app.get('/PracticeSession1', (req,res)=>{
 
 app.get('/SubmitTestComplete1', (req,res)=>{ 
     req.session.testsubmitted1 = 'true'
+    req.session.sonevone = 'false'
     res.redirect('/CompleteSessions')
 })
 
 app.get('/SubmitTestComplete2', (req,res)=>{ 
     req.session.testsubmitted2 = 'true'
+    req.session.completes2v1 = 'false'
     res.redirect('/CompleteSessions')
 })
 
 app.get('/CompleteSessions', (req,res)=>{
-    res.render('CompleteSessions', { session: req.session });
+    if(req.session.sonevone == 'true'){
+        res.redirect('/session1Complete')
+    }
+    else if(req.session.completes2v1 == 'true'){
+        res.redirect('/session2Complete')
+    }
+    else if(req.session.completes3v1 == 'true'){
+        res.redirect('/session3Complete')
+    }
+    else{
+        res.render('CompleteSessions', { session: req.session });
+    }
+
 })
 
 //Complete Type Quiz 2 Route

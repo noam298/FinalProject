@@ -93,7 +93,7 @@ const SearchUser = (req, res) => {
                     req.session.email = email; // Set email as session
                     req.session.groupno = groupno
                     req.session.grouptype= 'complete'
-                    res.render("CompleteSessions", { session: req.session });
+                    res.redirect("/CompleteSessions");
                 }
                 break;
             case 4:
