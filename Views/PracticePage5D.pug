@@ -6,11 +6,11 @@ head
   link(rel='stylesheet' href='Design.css')
   title ניסוי שדה בלמידה דיגיטלית
 h1 Questions 5
-form
+form(action='/dividedsubmit5' method='POST')
   div
     p
       b 1. What is Emmet?
-    input(type='radio' name='question1' value='option1')
+    input(type='radio' name='question1' value='option1' checked)
     | A programming language
     br
     input(type='radio' name='question1' value='option2')
@@ -25,7 +25,7 @@ form
   div
     p
       b 2. How do you create a new HTML document using Emmet?
-    input(type='radio' name='question2' value='option1')
+    input(type='radio' name='question2' value='option1' checked)
     | Type 'html' and press ENTER
     br
     input(type='radio' name='question2' value='option2')
@@ -40,7 +40,7 @@ form
   div
     p
       b 3. How do you create nested elements in Emmet?
-    input(type='radio' name='question3' value='option1')
+    input(type='radio' name='question3' value='option1' checked)
     | Using the '>' character
     br
     input(type='radio' name='question3' value='option2')
@@ -55,7 +55,7 @@ form
   div
     p
       b 4. How do you create a div with a class name 'navbar' using Emmet?
-    input(type='radio' name='question4' value='option1')
+    input(type='radio' name='question4' value='option1' checked)
     | div.navbar
     br
     input(type='radio' name='question4' value='option2')
@@ -70,7 +70,7 @@ form
   div
     p
       b 5. Can Emmet be used in Pug files?
-    input(type='radio' name='question5' value='option1')
+    input(type='radio' name='question5' value='option1' checked)
     | Yes, but with different syntax than in HTML files.
     br
     input(type='radio' name='question5' value='option2')
@@ -85,4 +85,4 @@ form
   button.submitPractice(type='submit') Submit
 
 br
-a(href='/VideoPage6Divided') Next
+//- a(href='/VideoPage6Divided') Next

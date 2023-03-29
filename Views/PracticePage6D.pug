@@ -6,11 +6,11 @@ head
   link(rel='stylesheet' href='Design.css')
   title ניסוי שדה בלמידה דיגיטלית
 h1 Questions 6
-form
+form(action='/dividedsubmit6' method='POST')
   div
     p
       b 1.What is the purpose of using included files in Pug?
-    input(type='radio' name='question1' value='option1')
+    input(type='radio' name='question1' value='option1' checked)
     | To reduce repetition in code
     br
     input(type='radio' name='question1' value='option2')
@@ -25,7 +25,7 @@ form
   div
     p
       b 2.Where should the included file for the footer be located?
-    input(type='radio' name='question2' value='option1')
+    input(type='radio' name='question2' value='option1' checked)
     | In the 'index.pug' file
     br
     input(type='radio' name='question2' value='option2')
@@ -40,7 +40,7 @@ form
   div
     p
       b 3.How can you include an external file in Pug?
-    input(type='radio' name='question3' value='option1')
+    input(type='radio' name='question3' value='option1' checked)
     | Use the 'include' keyword followed by the path to the file
     br
     input(type='radio' name='question3' value='option2')
@@ -55,7 +55,7 @@ form
   div
     p
       b 4.What is the benefit of using included files in Pug?
-    input(type='radio' name='question4' value='option1')
+    input(type='radio' name='question4' value='option1' checked)
     | They reduce the size of the HTML file
     br
     input(type='radio' name='question4' value='option2')
@@ -70,7 +70,7 @@ form
   div
     p
       b 5.What is the difference between 'include' and 'extends' in Pug?
-    input(type='radio' name='question5' value='option1')
+    input(type='radio' name='question5' value='option1' checked)
     | There is no difference between 'include' and 'extends'
     br
     input(type='radio' name='question5' value='option2')
@@ -85,4 +85,4 @@ form
   button.submitPractice(type='submit') Submit
 
 br
-a(href='/DividedSessions') Next
+//- a(href='/DividedSessions') Next

@@ -715,14 +715,95 @@ app.post('/dividedsubmit3', (req,res)=>{
 })
 
 app.post('/dividedsubmit4', (req,res)=>{
+    console.log(req.session.email)
+    console.log(req.body)
+
+    const { question1, question2, question3, question4, question5} = req.body;
+
+    const query = `
+      UPDATE students
+      SET q13 = $1, q14 = $2, q15 = $3, q16 = $4, q17 = $5
+      WHERE email='${req.session.email}'
+    `;
+
+    const values = [question1, question2, question3, question4, question5];
+
+    sql.query(query, values, (err,pgres)=>{
+        if(err){
+            throw err
+        }
+        else{
+            res.redirect('/VideoPage5Divided')
+        }
+
+    });
+
 
 })
 
 app.post('/dividedsubmit5', (req,res)=>{
+    console.log(req.session.email)
+    console.log(req.body)
+
+    const { question1, question2, question3, question4, question5} = req.body;
+
+    const query = `
+      UPDATE students
+      SET q23 = $1, q24 = $2, q25 = $3, q26 = $4, q27 = $5
+      WHERE email='${req.session.email}'
+    `;
+
+    const values = [question1, question2, question3, question4, question5];
+
+    sql.query(query, values, (err,pgres)=>{
+        if(err){
+            throw err
+        }
+        else{
+            req.session.session2fin = 'true'
+            req.session.divided2start = 'false'
+            res.redirect('/DividedSessions')
+        }
+
+    });
 
 })
 
 app.post('/dividedsubmit6', (req,res)=>{
+    console.log(req.session.email)
+    console.log(req.body)
+
+    const { question1, question2, question3, question4, question5} = req.body;
+
+    const query = `
+      UPDATE students
+      SET q18 = $1, q19 = $2, q20 = $3, q21 = $4, q22 = $5
+      WHERE email='${req.session.email}'
+    `;
+
+    const values = [question1, question2, question3, question4, question5];
+
+    sql.query(query, values, (err,pgres)=>{
+        if(err){
+            throw err
+        }
+        else{
+            res.redirect('/VideoPage6Divided')
+        }
+
+    });
+
+})
+
+app.post('/dividedsubmit7', (req,res)=>{
+
+})
+
+app.post('/dividedsubmit8', (req,res)=>{
+
+})
+
+app.post('/dividedsubmit9', (req,res)=>{
 
 })
 
