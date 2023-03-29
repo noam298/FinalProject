@@ -397,9 +397,9 @@ app.get('/PracticeSession3', isAuth, (req,res)=>{
     res.render('PracticePageS3', { session: req.session })
 })
 
-
+// Divided Style Dashboard
 app.get('/DividedSessions', (req, res) => {
-    res.render('DividedSessions');
+    res.render('DividedSessions', {session: req.session});
  });
 
 app.get('/session1Divided', (req, res) => {

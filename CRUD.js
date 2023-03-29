@@ -63,7 +63,7 @@ const SearchUser = (req, res) => {
                     req.session.email = email; // Set email as session
                     req.session.groupno = groupno
                     req.session.grouptype= 'complete'
-                    res.render("CompleteSessions", { session: req.session });
+                    res.redirect("/CompleteSessions");
                 } else {
                     console.log('Error: group 1 can only be accessed from a mobile device');
                     res.render('FailPage', { failMessage1: "Error", failMessage2: "You can only log in from mobile" });
@@ -76,7 +76,7 @@ const SearchUser = (req, res) => {
                     req.session.email = email; // Set email as session
                     req.session.groupno = groupno
                     req.session.grouptype= 'divided'
-                    res.render("DividedSessions", { session: req.session });
+                    res.redirect("/DividedSessions");
                 } else {
                     console.log('Error: group 2 can only be accessed from a mobile device');
                     res.render('FailPage', { failMessage1: "Error", failMessage2: "You can only log in from mobile" });
@@ -106,7 +106,7 @@ const SearchUser = (req, res) => {
                     req.session.email = email; // Set email as session
                     req.session.groupno = groupno
                     req.session.grouptype= 'divided'
-                    res.render("DividedSessions", { session: req.session });
+                    res.redirect("/DividedSessions");
                 }
                 break;
             case 5:
@@ -114,14 +114,14 @@ const SearchUser = (req, res) => {
                 req.session.email = email; // Set email as session
                 req.session.groupno = groupno
                 req.session.grouptype= 'complete'
-                res.render("CompleteSessions", { session: req.session });
+                res.redirect("/CompleteSessions");
                 break;
             case 6:
                 console.log('Rendering divided session');
                 req.session.email = email; // Set email as session
                 req.session.groupno = groupno
                 req.session.grouptype= 'divided'
-                res.render("DividedSessions", { session: req.session });
+                res.redirect("/DividedSessions");
                 break;
             default:
                 console.log('Error: invalid group number');
