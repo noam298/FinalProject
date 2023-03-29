@@ -360,19 +360,29 @@ app.post('/SubmitTestComplete3', (req,res)=>{
     });
 })
 
+// Complete Style Dashboard Route
 app.get('/CompleteSessions', (req,res)=>{
-    if(req.session.sonevone == 'true'){
-        res.redirect('/session1Complete')
-    }
-    else if(req.session.completes2v1 == 'true'){
-        res.redirect('/session2Complete')
-    }
-    else if(req.session.completes3v1 == 'true'){
-        res.redirect('/session3Complete')
+
+    if(req.session.grouptype == 'complete'){
+
+        if(req.session.sonevone == 'true'){
+            res.redirect('/session1Complete')
+        }
+        else if(req.session.completes2v1 == 'true'){
+            res.redirect('/session2Complete')
+        }
+        else if(req.session.completes3v1 == 'true'){
+            res.redirect('/session3Complete')
+        }
+        else{
+            res.render('CompleteSessions', { session: req.session });
+        }
     }
     else{
-        res.render('CompleteSessions', { session: req.session });
+        res.render('403')
     }
+
+    
 
 })
 
@@ -397,9 +407,29 @@ app.get('/PracticeSession3', isAuth, (req,res)=>{
     res.render('PracticePageS3', { session: req.session })
 })
 
-// Divided Style Dashboard
+// Divided Style Dashboard Route
 app.get('/DividedSessions', isAuth, (req, res) => {
-    res.render('DividedSessions', {session: req.session});
+
+    if(req.session.grouptype == 'divided'){
+        
+        if(req.session.divided1start == 'true'){
+            res.redirect('/session1Divided')
+        }
+        else if(req.session.divided2start == 'true'){
+            res.redirect('/session2Divided')
+        }
+        else if(req.session.divided3start == 'true'){
+            res.redirect('/session3Divided')
+        }
+        else{
+            res.render('DividedSessions', { session: req.session });
+        }
+    }
+    else{
+        res.render('403')
+    }
+
+
  });
 
 app.get('/session1Divided', isAuth, (req, res) => {
