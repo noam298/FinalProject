@@ -6,12 +6,12 @@ head
   link(rel='stylesheet' href='Design.css')
   title ניסוי שדה בלמידה דיגיטלית
 h1 Questions Session 3
-form
+form(action='/SubmitTestComplete3' method='POST')
   div
     p
       b 
         |1.What is the purpose of the "extends" keyword in Pug?
-    input(type='radio' name='question1' value='option1')
+    input(type='radio' name='question1' value='option1' checked)
     | To create reusable HTML5 boilerplate code for a website.
     br
     input(type='radio' name='question1' value='option2')
@@ -27,7 +27,7 @@ form
     p
       b 
         |2.What is the purpose of the "includes" keyword in Pug?
-    input(type='radio' name='question2' value='option1')
+    input(type='radio' name='question2' value='option1' checked)
     | To create reusable HTML5 boilerplate code for a website.
     br
     input(type='radio' name='question2' value='option2')
@@ -43,7 +43,7 @@ form
     p
       b 
         |3.What is the purpose of using interpolation in Pug?
-    input(type='radio' name='question3' value='option1')
+    input(type='radio' name='question3' value='option1' checked)
     | To create new HTML elements
     br
     input(type='radio' name='question3' value='option2')
@@ -59,7 +59,7 @@ form
     p
       b 
         |4.What is the correct syntax for iterating through an array using Pug?
-    input(type='radio' name='question4' value='option1')
+    input(type='radio' name='question4' value='option1' checked)
     | for each in names
     br
     input(type='radio' name='question4' value='option2')
@@ -75,7 +75,7 @@ form
     p
       b 
         |5.How can you format an array on separate lines in Pug?
-    input(type='radio' name='question5' value='option1')
+    input(type='radio' name='question5' value='option1' checked)
     | By putting the opening dash (-) on a line of its own
     br
     input(type='radio' name='question5' value='option2')
@@ -91,7 +91,7 @@ form
     p
       b 
         |6.What is the purpose of the "layout.pug" file in Pug?
-    input(type='radio' name='question6' value='option1')
+    input(type='radio' name='question6' value='option1' checked)
     | To create a new folder in a Pug file.
     br
     input(type='radio' name='question6' value='option2')
@@ -107,7 +107,7 @@ form
     p
       b 
         |7.What is the purpose of the "templates" folder in Pug?
-    input(type='radio' name='question7' value='option1')
+    input(type='radio' name='question7' value='option1' checked)
     | To create a new folder in a Pug file.
     br
     input(type='radio' name='question7' value='option2')
@@ -123,7 +123,7 @@ form
     p
       b 
         |8.What is the difference between buffered and unbuffered code in Pug?
-    input(type='radio' name='question8' value='option1')
+    input(type='radio' name='question8' value='option1' checked)
     | Buffered code evaluates a variable and sends it to output, while unbuffered code assigns a value to a variable
     br
     input(type='radio' name='question8' value='option2')
@@ -139,7 +139,7 @@ form
     p
       b 
         |9.How do we concatenate two variables in Pug?
-    input(type='radio' name='question9' value='option1')
+    input(type='radio' name='question9' value='option1' checked)
     | variable1 + variable2
     br
     input(type='radio' name='question9' value='option2')
@@ -155,7 +155,7 @@ form
     p
       b 
         |10.How can you set a variable to contain a JavaScript object in Pug?
-    input(type='radio' name='question10' value='option1')
+    input(type='radio' name='question10' value='option1' checked)
     | By using parentheses to group the values together
     br
     input(type='radio' name='question10' value='option2')
@@ -171,7 +171,7 @@ form
     p
       b 
         |11.What is the correct syntax for using conditions in Pug?
-    input(type='radio' name='question11' value='option1')
+    input(type='radio' name='question11' value='option1' checked)
     | if (condition)
     br
     input(type='radio' name='question11' value='option2')
@@ -187,7 +187,7 @@ form
     p
       b 
         |12.What is the purpose of the "block" keyword in Pug?
-    input(type='radio' name='question12' value='option1')
+    input(type='radio' name='question12' value='option1' checked)
     | To create a new folder in a Pug file.
     br
     input(type='radio' name='question12' value='option2')
@@ -222,7 +222,7 @@ form
     p
       b 
         |14.What will happen if you delete everything inside the square brackets of an array used in a Pug 'each' loop?
-    input(type='radio' name='question14' value='option1')
+    input(type='radio' name='question14' value='option1' checked)
     | The 'oh-no' div will no longer render
     br
     input(type='radio' name='question14' value='option2')
@@ -238,7 +238,7 @@ form
     p
       b 
         |15.How do we set a new variable in Pug?
-    input(type='radio' name='question15' value='option1')
+    input(type='radio' name='question15' value='option1'  checked)
     | variableName = value
     br
     input(type='radio' name='question15' value='option2')

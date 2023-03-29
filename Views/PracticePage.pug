@@ -10,7 +10,7 @@ form(action='/SubmitTestComplete1' method='POST')
   div
     p
       b 1. What is Pug?
-    input(type='radio' name='question1' value='option1')
+    input(type='radio' name='question1' value='option1' checked)
     | A programming language
     br
     input(type='radio' name='question1' value='option2')
@@ -25,7 +25,7 @@ form(action='/SubmitTestComplete1' method='POST')
   div
     p
       b 2. How is multi-line content inside a tag achieved in Pug?
-    input(type='radio' name='question2' value='option1')
+    input(type='radio' name='question2' value='option1' checked)
     | By putting a dot straight after the tag
     br
     input(type='radio' name='question2' value='option2')
@@ -40,7 +40,7 @@ form(action='/SubmitTestComplete1' method='POST')
   div
     p
       b 3. What happens when a line break is added after a tag in Pug?
-    input(type='radio' name='question3' value='option1')
+    input(type='radio' name='question3' value='option1' checked)
     | The content on the next line is ignored
     br
     input(type='radio' name='question3' value='option2')
@@ -55,7 +55,7 @@ form(action='/SubmitTestComplete1' method='POST')
   div
     p
       b 4. What is the purpose of creating a new Pug file named 'index.pug' in the 'lesson-03' folder according to the tutorial?
-    input(type='radio' name='question4' value='option1')
+    input(type='radio' name='question4' value='option1' checked)
     | To generate the expected-output.html file
     br
     input(type='radio' name='question4' value='option2')
@@ -70,7 +70,7 @@ form(action='/SubmitTestComplete1' method='POST')
   div 
     p
       b 5. What is the purpose of the "-P" flag when compiling a Pug file to HTML?
-    input(type='radio' name='question5' value='option1')
+    input(type='radio' name='question5' value='option1' checked)
     | It tells the compiler to print out a list of errors
     br
     input(type='radio' name='question5' value='option2')
@@ -85,7 +85,7 @@ form(action='/SubmitTestComplete1' method='POST')
   div
     p
         b 6. What is the consequence of getting the indentation wrong in a Pug file?
-    input(type='radio' name='question6' value='option1')
+    input(type='radio' name='question6' value='option1' checked)
     | The compiler will ignore the incorrect indentation and compile the file correctly
     br
     input(type='radio' name='question6' value='option2')
@@ -100,7 +100,7 @@ form(action='/SubmitTestComplete1' method='POST')
   div
     p
       b 7. How are classes added to tags in Pug?
-    input(type='radio' name='question7' value='option1')
+    input(type='radio' name='question7' value='option1' checked)
     | By using the . symbol
     br
     input(type='radio' name='question7' value='option2')
@@ -115,7 +115,7 @@ form(action='/SubmitTestComplete1' method='POST')
   div
     p
       b 8. How are data attributes added to tags in Pug?
-    input(type='radio' name='question8' value='option1')
+    input(type='radio' name='question8' value='option1' checked)
     | By using the round parentheses
     br
     input(type='radio' name='question8' value='option2')
@@ -130,7 +130,7 @@ form(action='/SubmitTestComplete1' method='POST')
   div
     p
       b 9. What should the generated index.html file be identical to, according to the tutorial?
-    input(type='radio' name='question9' value='option1')
+    input(type='radio' name='question9' value='option1' checked)
     | The logo, images, and CSS file
     br
     input(type='radio' name='question9' value='option2')
@@ -145,7 +145,7 @@ form(action='/SubmitTestComplete1' method='POST')
   div
     p
         b 10. What is the purpose of the "-w" flag when using the "pug" command?
-    input(type='radio' name='question10' value='option1')
+    input(type='radio' name='question10' value='option1' checked)
     | It tells the compiler to write the output to a specific file
     br
     input(type='radio' name='question10' value='option2')
@@ -160,7 +160,7 @@ form(action='/SubmitTestComplete1' method='POST')
   div
     p
       b 11. How can Pug automatically create a div with a class name or ID name?
-    input(type='radio' name='question11' value='option1')
+    input(type='radio' name='question11' value='option1' checked)
     | By putting .class-name or #id-name
     br
     input(type='radio' name='question11' value='option2')
@@ -175,7 +175,7 @@ form(action='/SubmitTestComplete1' method='POST')
   div
     p
       b 12. How can you compile your Pug file to normal HTML?
-    input(type='radio' name='question12' value='option1')
+    input(type='radio' name='question12' value='option1' checked)
     | By typing "pug index.pug" in the terminal
     br
     input(type='radio' name='question12' value='option2')
@@ -190,4 +190,4 @@ form(action='/SubmitTestComplete1' method='POST')
     button.submitPractice(type='submit') Submit
 
 br
-a(href='/SubmitTestComplete1') Next
+//- a(href='/SubmitTestComplete1') Next

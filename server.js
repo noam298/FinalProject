@@ -296,10 +296,68 @@ app.post('/SubmitTestComplete1', (req,res)=>{
 //     res.redirect('/CompleteSessions')
 // })
 
-app.get('/SubmitTestComplete2', (req,res)=>{ 
-    req.session.testsubmitted2 = 'true'
-    req.session.completes2v1 = 'false'
-    res.redirect('/CompleteSessions')
+app.post('/SubmitTestComplete2', (req,res)=>{
+    console.log(req.session.email)
+    console.log(req.body)
+
+    //Save Complete Type Quiz 2 results in DB
+    const { question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12, question13, question14, question15 } = req.body;
+
+    const query = `
+      UPDATE students
+      SET q13 = $1, q14 = $2, q15 = $3, q16 = $4, q17 = $5, q18 = $6, q19 = $7, q20 = $8, q21 = $9, q22 = $10, q23 = $11, q24 = $12, q25 = $13, q26 = $14, q27 = $15
+      WHERE email='${req.session.email}'
+    `;
+
+    const values = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12, question13, question14, question15];
+
+    sql.query(query, values, (err,pgres)=>{
+        if(err){
+            throw err
+        }
+        else{
+            req.session.testsubmitted2 = 'true'
+            req.session.completes2v1 = 'false'
+            res.redirect('/CompleteSessions')
+        }
+
+    });
+
+
+})
+
+// app.get('/SubmitTestComplete2', (req,res)=>{ 
+//     req.session.testsubmitted2 = 'true'
+//     req.session.completes2v1 = 'false'
+//     res.redirect('/CompleteSessions')
+// })
+
+app.post('/SubmitTestComplete3', (req,res)=>{
+    console.log(req.session.email)
+    console.log(req.body)
+
+    //Save Complete Type Quiz 2 results in DB
+    const { question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12, question14, question15 } = req.body;
+
+    const query = `
+      UPDATE students
+      SET q28 = $1, q29 = $2, q30 = $3, q31 = $4, q32 = $5, q33 = $6, q34 = $7, q35 = $8, q36 = $9, q37 = $10, q38 = $11, q39 = $12, q40 = $13, q41 = $14
+      WHERE email='${req.session.email}'
+    `;
+
+    const values = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12, question14, question15];
+
+    sql.query(query, values, (err,pgres)=>{
+        if(err){
+            throw err
+        }
+        else{
+            req.session.testsubmitted3 = 'true'
+            req.session.completes3v1 = 'false'
+            res.redirect('/CompleteSessions')
+        }
+
+    });
 })
 
 app.get('/CompleteSessions', (req,res)=>{
