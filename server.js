@@ -669,7 +669,8 @@ app.post('/insertbio', (req,res)=>{
             throw err
         }
         else{
-            res.redirect('/CompleteSessions')
+            req.session.destroy()
+            res.redirect('/EnterPage')
         }
 
     });
@@ -838,15 +839,82 @@ app.post('/dividedsubmit6', (req,res)=>{
 })
 
 app.post('/dividedsubmit7', (req,res)=>{
+    console.log(req.session.email)
+    console.log(req.body)
 
+    const { question1, question2, question3, question4, question5} = req.body;
+
+    const query = `
+      UPDATE students
+      SET q28 = $1, q29 = $2, q30 = $3, q31 = $4, q32 = $5
+      WHERE email='${req.session.email}'
+    `;
+
+    const values = [question1, question2, question3, question4, question5];
+
+    sql.query(query, values, (err,pgres)=>{
+        if(err){
+            throw err
+        }
+        else{
+            res.redirect('/VideoPage8Divided')
+        }
+
+    });
+
+    
 })
 
 app.post('/dividedsubmit8', (req,res)=>{
+    console.log(req.session.email)
+    console.log(req.body)
 
+    const { question1, question2, question3, question4} = req.body;
+
+    const query = `
+      UPDATE students
+      SET q33 = $1, q34 = $2, q35 = $3, q36 = $4
+      WHERE email='${req.session.email}'
+    `;
+
+    const values = [question1, question2, question3, question4];
+
+    sql.query(query, values, (err,pgres)=>{
+        if(err){
+            throw err
+        }
+        else{
+            res.redirect('/VideoPage9Divided')
+        }
+
+    });
 })
 
 app.post('/dividedsubmit9', (req,res)=>{
+    console.log(req.session.email)
+    console.log(req.body)
 
+    const { question1, question2, question3, question4, question5} = req.body;
+
+    const query = `
+      UPDATE students
+      SET q37 = $1, q38 = $2, q39 = $3, q40 = $4, q41 = $5
+      WHERE email='${req.session.email}'
+    `;
+
+    const values = [question1, question2, question3, question4, question5];
+
+    sql.query(query, values, (err,pgres)=>{
+        if(err){
+            throw err
+        }
+        else{
+            req.session.session3fin = 'true'
+            req.session.divided3start = 'false'
+            res.redirect('/SignUpPage')
+        }
+
+    });
 })
 
 

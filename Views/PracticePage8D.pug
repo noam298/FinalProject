@@ -6,11 +6,11 @@ head
   link(rel='stylesheet' href='Design.css')
   title ניסוי שדה בלמידה דיגיטלית
 h1 Questions 8
-form
+form(action='/dividedsubmit8' method='POST')
   div
     p
       b 1.How do we set a new variable in Pug?
-    input(type='radio' name='question1' value='option1')
+    input(type='radio' name='question1' value='option1' checked)
     | variableName = value
     br
     input(type='radio' name='question1' value='option2')
@@ -25,7 +25,7 @@ form
   div
     p
       b 2.What is the purpose of using interpolation in Pug?
-    input(type='radio' name='question2' value='option1')
+    input(type='radio' name='question2' value='option1' checked)
     | To create new HTML elements
     br
     input(type='radio' name='question2' value='option2')
@@ -40,7 +40,7 @@ form
   div
     p
       b 3.What is the difference between buffered and unbuffered code in Pug?
-    input(type='radio' name='question3' value='option1')
+    input(type='radio' name='question3' value='option1' checked)
     | Buffered code evaluates a variable and sends it to output, while unbuffered code assigns a value to a variable
     br
     input(type='radio' name='question3' value='option2')
@@ -55,7 +55,7 @@ form
   div
     p
       b 4.How do we concatenate two variables in Pug?
-    input(type='radio' name='question4' value='option1')
+    input(type='radio' name='question4' value='option1' checked)
     | variable1 + variable2
     br
     input(type='radio' name='question4' value='option2')
@@ -88,4 +88,4 @@ form
   button.submitPractice(type='submit') Submit
 
 br
-a(href='/VideoPage9Divided') Next
+//- a(href='/VideoPage9Divided') Next

@@ -6,11 +6,11 @@ head
   link(rel='stylesheet' href='Design.css')
   title ניסוי שדה בלמידה דיגיטלית
 h1 Questions 7
-form
+form(action='/dividedsubmit7' method='POST')
   div
     p
       b 1.What is the purpose of the "extends" keyword in Pug?
-    input(type='radio' name='question1' value='option1')
+    input(type='radio' name='question1' value='option1' checked)
     | To create reusable HTML5 boilerplate code for a website.
     br
     input(type='radio' name='question1' value='option2')
@@ -25,7 +25,7 @@ form
   div
     p
       b 2.What is the purpose of the "includes" keyword in Pug?
-    input(type='radio' name='question2' value='option1')
+    input(type='radio' name='question2' value='option1' checked)
     | To create reusable HTML5 boilerplate code for a website.
     br
     input(type='radio' name='question2' value='option2')
@@ -40,7 +40,7 @@ form
   div
     p
       b 3.What is the purpose of the "layout.pug" file in Pug?
-    input(type='radio' name='question3' value='option1')
+    input(type='radio' name='question3' value='option1' checked)
     | To create a new folder in a Pug file.
     br
     input(type='radio' name='question3' value='option2')
@@ -55,7 +55,7 @@ form
   div
     p
       b 4.What is the purpose of the "templates" folder in Pug?
-    input(type='radio' name='question4' value='option1')
+    input(type='radio' name='question4' value='option1' checked)
     | To create a new folder in a Pug file.
     br
     input(type='radio' name='question4' value='option2')
@@ -70,7 +70,7 @@ form
   div
     p
       b 5.What is the purpose of the "block" keyword in Pug?
-    input(type='radio' name='question5' value='option1')
+    input(type='radio' name='question5' value='option1' checked)
     | To create a new folder in a Pug file.
     br
     input(type='radio' name='question5' value='option2')
@@ -85,4 +85,4 @@ form
   button.submitPractice(type='submit') Submit
 
 br
-a(href='/VideoPage8Divided') Next
+//- a(href='/VideoPage8Divided') Next

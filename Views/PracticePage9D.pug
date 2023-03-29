@@ -6,11 +6,11 @@ head
   link(rel='stylesheet' href='Design.css')
   title ניסוי שדה בלמידה דיגיטלית
 h1 Questions 9
-form
+form(action='/dividedsubmit9' method='POST')
   div
     p
       b 1.What is the correct syntax for iterating through an array using Pug?
-    input(type='radio' name='question1' value='option1')
+    input(type='radio' name='question1' value='option1' checked)
     | for each in names
     br
     input(type='radio' name='question1' value='option2')
@@ -25,7 +25,7 @@ form
   div
     p
       b 2.How can you format an array on separate lines in Pug?
-    input(type='radio' name='question2' value='option1')
+    input(type='radio' name='question2' value='option1' checked)
     | By putting the opening dash (-) on a line of its own
     br
     input(type='radio' name='question2' value='option2')
@@ -40,7 +40,7 @@ form
   div
     p
       b 3.How can you set a variable to contain a JavaScript object in Pug?
-    input(type='radio' name='question3' value='option1')
+    input(type='radio' name='question3' value='option1' checked)
     | By using parentheses to group the values together
     br
     input(type='radio' name='question3' value='option2')
@@ -55,7 +55,7 @@ form
   div
     p
       b 4.What is the correct syntax for using conditions in Pug?
-    input(type='radio' name='question4' value='option1')
+    input(type='radio' name='question4' value='option1' checked)
     | if (condition)
     br
     input(type='radio' name='question4' value='option2')
@@ -70,7 +70,7 @@ form
   div
     p
       b 5.What will happen if you delete everything inside the square brackets of an array used in a Pug 'each' loop?
-    input(type='radio' name='question5' value='option1')
+    input(type='radio' name='question5' value='option1' checked)
     | The 'oh-no' div will no longer render
     br
     input(type='radio' name='question5' value='option2')
@@ -85,4 +85,4 @@ form
   button.submitPractice(type='submit') Submit
 
 br
-a(href='/SignUpPage') Next
+//- a(href='/SignUpPage') Next
