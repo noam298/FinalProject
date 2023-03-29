@@ -446,7 +446,17 @@ app.get('/session1Divided', isAuth, (req, res) => {
  });
 
  app.get('/session2Divided', isAuth, (req, res) => {
-    res.render('VideoPage4Divided', {session: req.session});
+    if(req.session.session2fin == 'true')
+        res.redirect('/DividedSessions')
+    else if (req.session.divided2b == 'true')
+        res.redirect('/PracticePage4D')
+    else{
+        req.session.divided2start = 'true'
+        req.session.divided2a = 'true'
+        res.render('VideoPage4Divided', {session: req.session});
+    }
+
+    
  });
 
  app.get('/session3Divided', isAuth, (req, res) => {
@@ -478,11 +488,25 @@ app.get('/session1Divided', isAuth, (req, res) => {
  });
 
  app.get('/VideoPage5Divided', isAuth, (req, res) => {
-    res.render('VideoPage5Divided', {session: req.session});
+    if (req.session.divided2d == 'true')
+        res.redirect('/PracticePage5D')
+    else{
+        req.session.divided2c = 'true'
+        res.render('VideoPage5Divided', {session: req.session});
+    }
+
+    
  });
 
  app.get('/VideoPage6Divided', isAuth, (req, res) => {
-    res.render('VideoPage6Divided', {session: req.session});
+    if (req.session.divided2f == 'true')
+        res.redirect('/PracticePage6D')
+    else{
+        req.session.divided2e = 'true'
+        res.render('VideoPage6Divided', {session: req.session});
+    }
+
+    
  });
 
  app.get('/VideoPage7Divided', isAuth, (req, res) => {
@@ -531,15 +555,35 @@ app.get('/PracticePage3D', isAuth, (req,res)=>{
 })
 
 app.get('/PracticePage4D', isAuth, (req,res)=>{
-    res.render('PracticePage4D', {session: req.session});
+    if (req.session.divided2c == 'true')
+        res.redirect('/VideoPage5Divided')
+    else{
+        req.session.divided2b = 'true'
+        res.render('PracticePage4D', {session: req.session});
+    }
+
 })
 
 app.get('/PracticePage5D', isAuth, (req,res)=>{
-    res.render('PracticePage5D', {session: req.session});
+    if (req.session.divided2e == 'true')
+        res.redirect('/VideoPage6Divided')
+    else{
+        req.session.divided2d = 'true'
+        res.render('PracticePage5D', {session: req.session});
+    }
+    
+    
 })
 
 app.get('/PracticePage6D', isAuth, (req,res)=>{
-    res.render('PracticePage6D', {session: req.session});
+    if (req.session.session2fin == 'true')
+        res.redirect('/DividedSessions')
+    else{
+        req.session.divided2f = 'true'
+        res.render('PracticePage6D', {session: req.session});
+    }
+
+    
 })
 
 app.get('/PracticePage7D', isAuth, (req,res)=>{
