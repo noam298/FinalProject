@@ -47,7 +47,10 @@ const isAuth = (req,res,next) => {
 }
 
 app.get('/', (req,res)=>{
-    if (req.session.groupno == 2 || req.session.groupno == 4 || req.session.groupno == 6) {
+    if(req.session.teststart == 'true'){
+        res.render('403', { session: req.session })
+    }
+    else if (req.session.groupno == 2 || req.session.groupno == 4 || req.session.groupno == 6) {
         res.render('DividedSessions', { session: req.session })
       } 
 
@@ -72,7 +75,10 @@ app.get('/SignUpPage', (req,res)=>{
 })
 
 app.get('/EnterPage', (req,res)=>{
-    if (req.session.groupno == 2 || req.session.groupno == 4 || req.session.groupno == 6) {
+    if(req.session.teststart == 'true'){
+        res.render('403', { session: req.session })
+    }
+    else if (req.session.groupno == 2 || req.session.groupno == 4 || req.session.groupno == 6) {
         res.render('DividedSessions', { session: req.session })
       } 
 
@@ -110,6 +116,7 @@ app.get('/session1Complete', (req, res) => {
     }
     else{
         req.session.sonevone = 'true'
+        req.session.teststart = 'true'
         res.render('VideoPage', { session: req.session })
     }
 
@@ -162,6 +169,7 @@ app.get('/session2Complete', (req, res) => {
     }
     else{
         req.session.completes2v1 = 'true'
+        req.session.teststart = 'true'
         res.render('VideoPageS2', { session: req.session })
     }
 
@@ -207,6 +215,7 @@ app.get('/session2Complete', (req, res) => {
     }
     else{
         req.session.completes3v1 = 'true'
+        req.session.teststart = 'true'
         res.render('VideoPageS3', { session: req.session })
     }
 
