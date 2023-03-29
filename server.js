@@ -261,11 +261,40 @@ app.get('/PracticeSession1', (req,res)=>{
 
 })
 
-app.get('/SubmitTestComplete1', (req,res)=>{ 
-    req.session.testsubmitted1 = 'true'
-    req.session.sonevone = 'false'
-    res.redirect('/CompleteSessions')
+app.post('/SubmitTestComplete1', (req,res)=>{
+    console.log(req.session.email)
+    console.log(req.body)
+
+    //Save Complete Type Quiz 1 results in DB
+    const { question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12 } = req.body;
+
+    const query = `
+      UPDATE students
+      SET q1 = $1, q2 = $2, q3 = $3, q4 = $4, q5 = $5, q6 = $6, q7 = $7, q8 = $8, q9 = $9, q10 = $10, q11 = $11, q12 = $12
+      WHERE email='${req.session.email}'
+    `;
+
+    const values = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12];
+
+    sql.query(query, values, (err,pgres)=>{
+        if(err){
+            throw err
+        }
+        else{
+            req.session.testsubmitted1 = 'true'
+            req.session.sonevone = 'false'
+            res.redirect('/CompleteSessions')
+        }
+
+    });
+
 })
+
+// app.get('/SubmitTestComplete1', (req,res)=>{ 
+//     req.session.testsubmitted1 = 'true'
+//     req.session.sonevone = 'false'
+//     res.redirect('/CompleteSessions')
+// })
 
 app.get('/SubmitTestComplete2', (req,res)=>{ 
     req.session.testsubmitted2 = 'true'
