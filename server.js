@@ -460,7 +460,16 @@ app.get('/session1Divided', isAuth, (req, res) => {
  });
 
  app.get('/session3Divided', isAuth, (req, res) => {
-    res.render('VideoPage7Divided', {session: req.session});
+    if(req.session.session3fin == 'true')
+        res.redirect('/DividedSessions')
+    else if (req.session.divided3b == 'true')
+        res.redirect('/PracticePage7D')
+    else{
+        req.session.divided3start = 'true'
+        req.session.divided3a = 'true'
+        res.render('VideoPage7Divided', {session: req.session});
+    }
+    
  });
 
  app.get('/VideoPage2Divided', isAuth, (req, res) => {
@@ -514,11 +523,24 @@ app.get('/session1Divided', isAuth, (req, res) => {
  });
 
  app.get('/VideoPage8Divided', isAuth, (req, res) => {
-    res.render('VideoPage8Divided', {session: req.session});
+    if (req.session.divided3d == 'true')
+        res.redirect('/PracticePage8D')
+    else{
+        req.session.divided3c = 'true'
+        res.render('VideoPage8Divided', {session: req.session});
+    }
+
+    
  });
 
  app.get('/VideoPage9Divided', isAuth, (req, res) => {
-    res.render('VideoPage9Divided', {session: req.session});
+    if (req.session.divided3f == 'true')
+        res.redirect('/PracticePage9D')
+    else{
+        req.session.divided3e = 'true'
+        res.render('VideoPage9Divided', {session: req.session});
+    }
+    
  });
 
 
@@ -587,15 +609,35 @@ app.get('/PracticePage6D', isAuth, (req,res)=>{
 })
 
 app.get('/PracticePage7D', isAuth, (req,res)=>{
-    res.render('PracticePage7D', {session: req.session});
+    if (req.session.divided3c == 'true')
+        res.redirect('/VideoPage8Divided')
+    else{
+        req.session.divided3b = 'true'
+        res.render('PracticePage7D', {session: req.session});
+    }
+
+    
 })
 
 app.get('/PracticePage8D', isAuth, (req,res)=>{
-    res.render('PracticePage8D', {session: req.session});
+    if (req.session.divided3e == 'true')
+        res.redirect('/VideoPage9Divided')
+    else{
+        req.session.divided3d = 'true'
+        res.render('PracticePage8D', {session: req.session});
+    }
+    
 })
 
 app.get('/PracticePage9D', isAuth, (req,res)=>{
-    res.render('PracticePage9D', {session: req.session});
+    if (req.session.session3fin == 'true')
+        res.redirect('/DividedSessions')
+    else{
+        req.session.divided3f = 'true'
+        res.render('PracticePage9D', {session: req.session});
+    }
+
+    
 })
 
 //- Divided Style Routes End - 
