@@ -30,6 +30,12 @@ app.use(express.static('Static'));
 
 // app.get('/',[CreateDB.DropUsersTable,CreateDB.CreateUsers, CreateDB.InsertDataToUsers,start]);
 
+//Middleware to disable browser caching
+app.use((req, res, next) => {
+    res.set('Cache-Control', 'no-store');
+    next();
+});
+
 app.get('/', (req,res)=>{
     if (req.session.groupno == 2 || req.session.groupno == 4 || req.session.groupno == 6) {
         res.render('DividedSessions', { session: req.session })
@@ -83,34 +89,54 @@ app.get('/divided', (req, res) => {
 app.get('/session1Complete', (req, res) => {
     console.log(req.session)
 
-    if (req.session.email && req.session.grouptype == 'complete' && !req.session.sonevone){
+    if(!req.session.email){
+        res.render('403')
+    }
+    else if(req.session.session1fin == 'true'){
+        res.redirect('/CompleteSessions')
+    }
+    else if(req.session.stwovtwo == 'true' ){
+        res.redirect('/VideoPage2')
+    }
+    else{
         req.session.sonevone = 'true'
         res.render('VideoPage', { session: req.session })
     }
-    else{
-        res.render('403')
-    }
+
+    // if (req.session.email && req.session.grouptype == 'complete' && !req.session.sonevone){
+    //     req.session.sonevone = 'true'
+    //     res.render('VideoPage', { session: req.session })
+    // }
+    // else{
+    //     res.render('403')
+    // }
 
  });
 
 app.get('/VideoPage2', (req,res)=>{
-    if (req.session.email && req.session.grouptype == 'complete' && !req.session.stwovtwo){
-        req.session.stwovtwo = 'true'
-        res.render('VideoPage2', { session: req.session })
+    if(!req.session.email){
+        res.render('403')
+    }
+    else if(req.session.sthreevthree == 'true' ){
+        res.redirect('/VideoPage3')
     }
     else{
-        res.render('403')
+        req.session.stwovtwo = 'true'
+        res.render('VideoPage2', { session: req.session })
     }
 
 })
 
 app.get('/VideoPage3', (req,res)=>{
-    if (req.session.email && req.session.grouptype == 'complete' && !req.session.sthreevthree){
-        req.session.sthreevthree = 'true'
-        res.render('VideoPage3', { session: req.session })
+    if(!req.session.email){
+        res.render('403')
+    }
+    else if(req.session.session1fin == 'true' ){
+        res.redirect('/PracticeSession1')
     }
     else{
-        res.render('403')
+        req.session.sthreevthree = 'true'
+        res.render('VideoPage3', { session: req.session })
     }
 })
 
@@ -140,19 +166,23 @@ app.get('/session2Complete', (req, res) => {
     res.render('VideoPage3S3');
  });
 
+ //Complete type Quiz 1 route
 app.get('/PracticeSession1', (req,res)=>{
-    if (req.session.email && req.session.grouptype == 'complete' && !req.session.sessiononequestions){
-        req.session.sessiononequestions = 'true'
-        res.render('PracticePage', { session: req.session })
-    }
-    else{
+    if(!req.session.email){
         res.render('403')
+    }
+    // else if(req.session.session1fin == 'true' ){
+    //     res.redirect('/PracticeSession1')
+    // }
+    else{
+        req.session.session1fin = 'true'
+        res.render('PracticePage', { session: req.session })
     }
 
 })
 
 app.get('/CompleteSessions', (req,res)=>{
-    res.render('CompleteSessions');
+    res.render('CompleteSessions', { session: req.session });
 })
 
 app.get('/PracticeSession2', (req,res)=>{
