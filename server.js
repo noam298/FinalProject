@@ -141,16 +141,51 @@ app.get('/VideoPage3', (req,res)=>{
 })
 
 app.get('/session2Complete', (req, res) => {
-    res.render('VideoPageS2');
+    if(!req.session.email){
+        res.render('403')
+    }
+    else if(req.session.session2fin == 'true'){
+        res.redirect('/CompleteSessions')
+    }
+    else if(req.session.completes2v2 == 'true' ){
+        res.redirect('/VideoPage2S2')
+    }
+    else{
+        req.session.completes2v1 = 'true'
+        res.render('VideoPageS2', { session: req.session })
+    }
+
  });
 
  
  app.get('/VideoPage2S2', (req, res) => {
-    res.render('VideoPage2S2');
+    if(!req.session.email){
+        res.render('403')
+    }
+    else if(req.session.completes2v3 == 'true' ){
+        res.redirect('/VideoPage3S2')
+    }
+    else{
+        req.session.completes2v2 = 'true'
+        res.render('VideoPage2S2', { session: req.session })
+    }
+
+    // res.render('VideoPage2S2');
  });
 
  app.get('/VideoPage3S2', (req, res) => {
-    res.render('VideoPage3S2');
+    if(!req.session.email){
+        res.render('403')
+    }
+    else if(req.session.completes2fin == 'true' ){
+        res.redirect('/PracticeSession2')
+    }
+    else{
+        req.session.completes2v3 = 'true'
+        res.render('VideoPage3S2', { session: req.session })
+    }
+
+    // res.render('VideoPage3S2');
  });
 
  app.get('/session3Complete', (req, res) => {
@@ -185,8 +220,17 @@ app.get('/CompleteSessions', (req,res)=>{
     res.render('CompleteSessions', { session: req.session });
 })
 
+//Complete Type Quiz 2 Route
 app.get('/PracticeSession2', (req,res)=>{
-    res.render('PracticePageS2');
+    if(!req.session.email){
+        res.render('403')
+    }
+    else{
+        req.session.completes2fin = 'true'
+        res.render('PracticePageS2', { session: req.session })
+    }
+
+    // res.render('PracticePageS2');
 })
 
 app.get('/PracticeSession3', (req,res)=>{
