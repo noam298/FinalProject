@@ -59,6 +59,10 @@ app.get('/', (req,res)=>{
         res.render('WelcomePage');
 })
 
+app.get('/enterUser', isAuth, (req,res) =>{
+    res.render('CompleteSessions', {session: req.session})
+})
+
 app.get('/VideoPage', (req,res)=>{
     res.render('VideoPage');
 })
@@ -187,7 +191,7 @@ app.get('/session2Complete', (req, res) => {
     if(!req.session.email){
         res.render('403')
     }
-    else if(req.session.completes2fin == 'true' ){
+    else if(req.session.session2fin == 'true' ){
         res.redirect('/PracticeSession2')
     }
     else{
@@ -242,14 +246,24 @@ app.get('/PracticeSession1', (req,res)=>{
     if(!req.session.email){
         res.render('403')
     }
-    // else if(req.session.session1fin == 'true' ){
-    //     res.redirect('/PracticeSession1')
-    // }
+    else if (req.session.testsubmitted1 == 'true'){
+        res.redirect('/CompleteSessions')
+    }
     else{
         req.session.session1fin = 'true'
         res.render('PracticePage', { session: req.session })
     }
 
+})
+
+app.get('/SubmitTestComplete1', (req,res)=>{ 
+    req.session.testsubmitted1 = 'true'
+    res.redirect('/CompleteSessions')
+})
+
+app.get('/SubmitTestComplete2', (req,res)=>{ 
+    req.session.testsubmitted2 = 'true'
+    res.redirect('/CompleteSessions')
 })
 
 app.get('/CompleteSessions', (req,res)=>{
@@ -260,6 +274,9 @@ app.get('/CompleteSessions', (req,res)=>{
 app.get('/PracticeSession2', (req,res)=>{
     if(!req.session.email){
         res.render('403')
+    }
+    else if (req.session.testsubmitted2 == 'true'){
+        res.redirect('/CompleteSessions')
     }
     else{
         req.session.session2fin = 'true'
