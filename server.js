@@ -403,85 +403,88 @@ app.get('/DividedSessions', isAuth, (req, res) => {
  });
 
 app.get('/session1Divided', isAuth, (req, res) => {
-    res.render('VideoPageDivided');
+
+    res.render('VideoPageDivided', {session: req.session});
  });
 
  app.get('/session2Divided', isAuth, (req, res) => {
-    res.render('VideoPage4Divided');
+    res.render('VideoPage4Divided', {session: req.session});
  });
 
  app.get('/session3Divided', isAuth, (req, res) => {
-    res.render('VideoPage7Divided');
+    res.render('VideoPage7Divided', {session: req.session});
  });
 
  app.get('/VideoPage2Divided', isAuth, (req, res) => {
-    res.render('VideoPage2Divided');
+    res.render('VideoPage2Divided', {session: req.session});
  });
 
  app.get('/VideoPage3Divided', isAuth, (req, res) => {
-    res.render('VideoPage3Divided');
+    res.render('VideoPage3Divided', {session: req.session});
  });
 
  app.get('/VideoPage4Divided', isAuth, (req, res) => {
-    res.render('VideoPage4Divided');
+    res.render('VideoPage4Divided', {session: req.session});
  });
 
  app.get('/VideoPage5Divided', isAuth, (req, res) => {
-    res.render('VideoPage5Divided');
+    res.render('VideoPage5Divided', {session: req.session});
  });
 
  app.get('/VideoPage6Divided', isAuth, (req, res) => {
-    res.render('VideoPage6Divided');
+    res.render('VideoPage6Divided', {session: req.session});
  });
 
  app.get('/VideoPage7Divided', isAuth, (req, res) => {
-    res.render('VideoPage7Divided');
+    res.render('VideoPage7Divided', {session: req.session});
  });
 
  app.get('/VideoPage8Divided', isAuth, (req, res) => {
-    res.render('VideoPage8Divided');
+    res.render('VideoPage8Divided', {session: req.session});
  });
 
  app.get('/VideoPage9Divided', isAuth, (req, res) => {
-    res.render('VideoPage9Divided');
+    res.render('VideoPage9Divided', {session: req.session});
  });
 
 
  app.get('/PracticePage1D', isAuth, (req,res)=>{
-    res.render('PracticePage1D');
+    res.render('PracticePage1D', {session: req.session});
 })
 
 app.get('/PracticePage2D', isAuth, (req,res)=>{
-    res.render('PracticePage2D');
+    res.render('PracticePage2D', {session: req.session});
 })
 
 app.get('/PracticePage3D', isAuth, (req,res)=>{
-    res.render('PracticePage3D');
+    res.render('PracticePage3D', {session: req.session});
 })
 
 app.get('/PracticePage4D', isAuth, (req,res)=>{
-    res.render('PracticePage4D');
+    res.render('PracticePage4D', {session: req.session});
 })
 
 app.get('/PracticePage5D', isAuth, (req,res)=>{
-    res.render('PracticePage5D');
+    res.render('PracticePage5D', {session: req.session});
 })
 
 app.get('/PracticePage6D', isAuth, (req,res)=>{
-    res.render('PracticePage6D');
+    res.render('PracticePage6D', {session: req.session});
 })
 
 app.get('/PracticePage7D', isAuth, (req,res)=>{
-    res.render('PracticePage7D');
+    res.render('PracticePage7D', {session: req.session});
 })
 
 app.get('/PracticePage8D', isAuth, (req,res)=>{
-    res.render('PracticePage8D');
+    res.render('PracticePage8D', {session: req.session});
 })
 
 app.get('/PracticePage9D', isAuth, (req,res)=>{
-    res.render('PracticePage9D');
+    res.render('PracticePage9D', {session: req.session});
 })
+
+//- Divided Style Routes End - 
 
 app.get('/SignUpPage', (req,res)=>{
     res.render('SignUpPage');
