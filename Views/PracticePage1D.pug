@@ -6,11 +6,11 @@ head
   link(rel='stylesheet' href='Design.css')
   title ניסוי שדה בלמידה דיגיטלית
 h1 Questions 1
-form
+form(action='/dividedsubmit1' method='POST')
   div
     p
       b 1. What is Pug?
-    input(type='radio' name='question1' value='option1')
+    input(type='radio' name='question1' value='option1' checked)
     | A programming language
     br
     input(type='radio' name='question1' value='option2')
@@ -25,7 +25,7 @@ form
   div
     p
       b 2. How can you compile your Pug file to normal HTML?
-    input(type='radio' name='question2' value='option1')
+    input(type='radio' name='question2' value='option1' checked)
     | By typing &quot;pug index.pug&quot; in the terminal
     br
     input(type='radio' name='question2' value='option2')
@@ -40,7 +40,7 @@ form
   div
     p
         b 3. What is the purpose of the &quot;-P&quot; flag when compiling a Pug file to HTML?
-    input(type='radio' name='question3' value='option1')
+    input(type='radio' name='question3' value='option1' checked)
     | It tells the compiler to print out a list of errors
     br
     input(type='radio' name='question3' value='option2')
@@ -55,7 +55,7 @@ form
   div
     p
         b 4. What is the consequence of getting the indentation wrong in a Pug file?
-    input(type='radio' name='question4' value='option1')
+    input(type='radio' name='question4' value='option1' checked)
     | The compiler will ignore the incorrect indentation and compile the file correctly
     br
     input(type='radio' name='question4' value='option2')
@@ -70,7 +70,7 @@ form
   div
     p
         b 5. What is the purpose of the &quot;-w&quot; flag when using the &quot;pug&quot; command?
-    input(type='radio' name='question5' value='option1')
+    input(type='radio' name='question5' value='option1' checked)
     | It tells the compiler to write the output to a specific file
     br
     input(type='radio' name='question5' value='option2')
@@ -85,4 +85,4 @@ form
   button.submitPractice(type='submit') Submit
 
 br
-a(href='/VideoPage2Divided') Next
+//- a(href='/VideoPage2Divided') Next

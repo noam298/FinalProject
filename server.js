@@ -433,8 +433,16 @@ app.get('/DividedSessions', isAuth, (req, res) => {
  });
 
 app.get('/session1Divided', isAuth, (req, res) => {
+    if(req.session.session1fin == 'true')
+        res.redirect('/DividedSessions')
+    else if (req.session.divided1b == 'true')
+        res.redirect('/PracticePage1D')
+    else{
+        req.session.divided1start = 'true'
+        req.session.divided1a = 'true'
+        res.render('VideoPageDivided', {session: req.session});
+    }
 
-    res.render('VideoPageDivided', {session: req.session});
  });
 
  app.get('/session2Divided', isAuth, (req, res) => {
@@ -446,11 +454,23 @@ app.get('/session1Divided', isAuth, (req, res) => {
  });
 
  app.get('/VideoPage2Divided', isAuth, (req, res) => {
-    res.render('VideoPage2Divided', {session: req.session});
+    if (req.session.divided1d == 'true')
+        res.redirect('/PracticePage2D')
+    else{
+        req.session.divided1c = 'true'
+        res.render('VideoPage2Divided', {session: req.session});
+    }
+
  });
 
  app.get('/VideoPage3Divided', isAuth, (req, res) => {
-    res.render('VideoPage3Divided', {session: req.session});
+    if (req.session.divided1f == 'true')
+        res.redirect('/PracticePage3D')
+    else{
+        req.session.divided1e = 'true'
+        res.render('VideoPage3Divided', {session: req.session});
+    }
+
  });
 
  app.get('/VideoPage4Divided', isAuth, (req, res) => {
@@ -479,15 +499,35 @@ app.get('/session1Divided', isAuth, (req, res) => {
 
 
  app.get('/PracticePage1D', isAuth, (req,res)=>{
-    res.render('PracticePage1D', {session: req.session});
+    if (req.session.divided1c == 'true')
+        res.redirect('/VideoPage2Divided')
+    else{
+        req.session.divided1b = 'true'
+        res.render('PracticePage1D', {session: req.session});
+    }
+
+    
 })
 
 app.get('/PracticePage2D', isAuth, (req,res)=>{
-    res.render('PracticePage2D', {session: req.session});
+    if (req.session.divided1e == 'true')
+        res.redirect('/VideoPage3Divided')
+    else{
+        req.session.divided1d = 'true'
+        res.render('PracticePage2D', {session: req.session});
+    }
+    
 })
 
 app.get('/PracticePage3D', isAuth, (req,res)=>{
-    res.render('PracticePage3D', {session: req.session});
+    if (req.session.session1fin == 'true')
+        res.redirect('/DividedSessions')
+    else{
+        req.session.divided1f = 'true'
+        res.render('PracticePage3D', {session: req.session});
+    }
+    
+    
 })
 
 app.get('/PracticePage4D', isAuth, (req,res)=>{
@@ -547,6 +587,52 @@ app.post('/insertbio', (req,res)=>{
         }
 
     });
+
+})
+
+//Divided Test POST Routes
+app.post('/dividedsubmit1', (req,res)=>{
+    console.log(req.session.email)
+    console.log(req.body)
+
+    const { question1, question2, question3, question4, question5} = req.body;
+
+    const query = `
+      UPDATE students
+      SET q1 = $1, q2 = $2, q3 = $3, q4 = $4, q5 = $5
+      WHERE email='${req.session.email}'
+    `;
+
+    const values = [question1, question2, question3, question4, question5];
+
+    sql.query(query, values, (err,pgres)=>{
+        if(err){
+            throw err
+        }
+        else{
+            res.redirect('/VideoPage2Divided')
+        }
+
+    });
+})
+
+app.post('/dividedsubmit2', (req,res)=>{
+
+})
+
+app.post('/dividedsubmit3', (req,res)=>{
+
+})
+
+app.post('/dividedsubmit4', (req,res)=>{
+
+})
+
+app.post('/dividedsubmit5', (req,res)=>{
+
+})
+
+app.post('/dividedsubmit6', (req,res)=>{
 
 })
 
