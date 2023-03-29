@@ -36,6 +36,16 @@ app.use((req, res, next) => {
     next();
 });
 
+//isAuth Function for Protecting Routes
+const isAuth = (req,res,next) => {
+    if (req.session.email) {
+        next();
+      } 
+    else {
+        res.render('403');
+      }
+}
+
 app.get('/', (req,res)=>{
     if (req.session.groupno == 2 || req.session.groupno == 4 || req.session.groupno == 6) {
         res.render('DividedSessions', { session: req.session })
@@ -188,17 +198,43 @@ app.get('/session2Complete', (req, res) => {
     // res.render('VideoPage3S2');
  });
 
- app.get('/session3Complete', (req, res) => {
-    res.render('VideoPageS3');
+ app.get('/session3Complete', isAuth, (req, res) => {
+    if(req.session.session3fin == 'true'){
+        res.redirect('/CompleteSessions')
+    }
+    else if(req.session.completes3v2 == 'true' ){
+        res.redirect('/VideoPage2S3')
+    }
+    else{
+        req.session.completes3v1 = 'true'
+        res.render('VideoPageS3', { session: req.session })
+    }
+
+    // res.render('VideoPageS3');
  });
 
  
- app.get('/VideoPage2S3', (req, res) => {
-    res.render('VideoPage2S3');
+ app.get('/VideoPage2S3', isAuth, (req, res) => {
+    if(req.session.completes3v3 == 'true' ){
+        res.redirect('/VideoPage3S3')
+    }
+    else{
+        req.session.completes3v2 = 'true'
+        res.render('VideoPage2S3', { session: req.session })
+    }
+
+    // res.render('VideoPage2S3');
  });
 
- app.get('/VideoPage3S3', (req, res) => {
-    res.render('VideoPage3S3');
+ app.get('/VideoPage3S3', isAuth, (req, res) => {
+    if(req.session.session3fin == 'true' ){
+        res.redirect('/PracticeSession3')
+    }
+    else{
+        req.session.completes3v3 = 'true'
+        res.render('VideoPage3S3', { session: req.session })
+    }
+    // res.render('VideoPage3S3');
  });
 
  //Complete type Quiz 1 route
@@ -226,15 +262,16 @@ app.get('/PracticeSession2', (req,res)=>{
         res.render('403')
     }
     else{
-        req.session.completes2fin = 'true'
+        req.session.session2fin = 'true'
         res.render('PracticePageS2', { session: req.session })
     }
 
     // res.render('PracticePageS2');
 })
 
-app.get('/PracticeSession3', (req,res)=>{
-    res.render('PracticePageS3');
+app.get('/PracticeSession3', isAuth, (req,res)=>{
+    req.session.session3fin = 'true'
+    res.render('PracticePageS3', { session: req.session })
 })
 
 
