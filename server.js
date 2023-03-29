@@ -617,10 +617,56 @@ app.post('/dividedsubmit1', (req,res)=>{
 })
 
 app.post('/dividedsubmit2', (req,res)=>{
+    console.log(req.session.email)
+    console.log(req.body)
+
+    const { question1, question2, question3, question4, question5} = req.body;
+
+    const query = `
+      UPDATE students
+      SET q6 = $1, q7 = $2, q8 = $3, q9 = $4, q10 = $5
+      WHERE email='${req.session.email}'
+    `;
+
+    const values = [question1, question2, question3, question4, question5];
+
+    sql.query(query, values, (err,pgres)=>{
+        if(err){
+            throw err
+        }
+        else{
+            res.redirect('/VideoPage3Divided')
+        }
+
+    });
 
 })
 
 app.post('/dividedsubmit3', (req,res)=>{
+    console.log(req.session.email)
+    console.log(req.body)
+
+    const { question1, question2} = req.body;
+
+    const query = `
+      UPDATE students
+      SET q11 = $1, q12 = $2
+      WHERE email='${req.session.email}'
+    `;
+
+    const values = [question1, question2];
+
+    sql.query(query, values, (err,pgres)=>{
+        if(err){
+            throw err
+        }
+        else{
+            req.session.session1fin = 'true'
+            req.session.divided1start = 'false'
+            res.redirect('/DividedSessions')
+        }
+
+    });
 
 })
 
