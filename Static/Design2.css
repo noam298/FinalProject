@@ -1,0 +1,75 @@
+/* @font-face {
+    font-family: myFont;
+    src: url(./Montserrat-Regular.ttf);
+} */
+/* header{
+
+} */
+
+body{
+    background-image: url(./Images/BackImage.jpg);
+    background-size: cover;
+    font-family: 'Segoe UI';
+    text-align: center;
+    padding: 10%;
+    margin: 1% 1% 1% 1%;
+}
+form{
+  text-align:left;
+  font-size:120%;
+  margin-left: 40%;
+
+}
+
+
+.enterFromHP, .enterFromVP, .submitPractice, .enterToSU, #EnterButton, #CreateButton{
+  background-color: #EA4C89;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+#CreateButton, #EnterButton{
+margin-top: 3%;
+margin-left: 15%;
+}
+
+.enterFromHP:hover,
+.enterFromHP:focus,
+.enterFromVP:hover,
+.enterFromVP:focus,
+.enterToSU:hover,
+.enterToSU:focus,
+.submitPractice:hover,
+.submitPractice:focus,
+.GoButton:hover,
+.GoButton:focus {
+  background-color: #F082AC;
+}
+
+@media screen and (max-width: 700px) {
+  body{
+      background-color: blueviolet ;
+  }
+  
+}
