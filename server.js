@@ -47,7 +47,7 @@ const isAuth = (req,res,next) => {
 }
 
 app.get('/', (req,res)=>{
-    if(req.session.teststart == 'true'){
+    if(req.session.teststart == 'true' || req.session.divided1start == 'true' || req.session.divided2start == 'true' || req.session.divided3start == 'true'){
         res.render('403', { session: req.session })
     }
     else if (req.session.groupno == 2 || req.session.groupno == 4 || req.session.groupno == 6) {
@@ -75,7 +75,7 @@ app.get('/SignUpPage', isAuth, (req,res)=>{
 })
 
 app.get('/EnterPage', (req,res)=>{
-    if(req.session.teststart == 'true'){
+    if(req.session.teststart == 'true' || req.session.divided1start == 'true' || req.session.divided2start == 'true' || req.session.divided3start == 'true'){
         res.render('403', { session: req.session })
     }
     else if (req.session.groupno == 2 || req.session.groupno == 4 || req.session.groupno == 6) {
