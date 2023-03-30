@@ -114,6 +114,31 @@ const SearchUser = (req, res) => {
                 req.session.email = email; // Set email as session
                 req.session.groupno = groupno
                 req.session.grouptype= 'complete'
+
+                //Saving device data in DB for case 5
+                if (isMobile) {
+                    // Save "mobile" in device column for user with email req.session.email
+                    const query = "UPDATE students SET device = 'mobile' WHERE email = $1";
+                    sql.query(query, [req.session.email], (err, result) => {
+                      if (err) {
+                        console.error(err);
+                      } else {
+                        console.log("Device updated to mobile for user with email", req.session.email);
+                      }
+                    });
+                  } else {
+                    // Save "PC" in device column for user with email req.session.email
+                    const query = "UPDATE students SET device = 'PC' WHERE email = $1";
+                    sql.query(query, [req.session.email], (err, result) => {
+                      if (err) {
+                        console.error(err);
+                      } else {
+                        console.log("Device updated to PC for user with email", req.session.email);
+                      }
+                    });
+                  }
+                  
+
                 res.redirect("/CompleteSessions");
                 break;
             case 6:
@@ -121,6 +146,31 @@ const SearchUser = (req, res) => {
                 req.session.email = email; // Set email as session
                 req.session.groupno = groupno
                 req.session.grouptype= 'divided'
+
+                //Saving device data in DB for case 6
+                if (isMobile) {
+                    // Save "mobile" in device column for user with email req.session.email
+                    const query = "UPDATE student SET device = 'mobile' WHERE email = $1";
+                    sql.query(query, [req.session.email], (err, result) => {
+                      if (err) {
+                        console.error(err);
+                      } else {
+                        console.log("Device updated to mobile for user with email", req.session.email);
+                      }
+                    });
+                  } else {
+                    // Save "PC" in device column for user with email req.session.email
+                    const query = "UPDATE student SET device = 'PC' WHERE email = $1";
+                    sql.query(query, [req.session.email], (err, result) => {
+                      if (err) {
+                        console.error(err);
+                      } else {
+                        console.log("Device updated to PC for user with email", req.session.email);
+                      }
+                    });
+                  }
+                  
+                
                 res.redirect("/DividedSessions");
                 break;
             default:
